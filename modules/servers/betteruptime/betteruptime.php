@@ -457,22 +457,26 @@ function betteruptime_ConfigOptions()
         // configoption10 = Check from US Region
         'Check from US Region'             => array(
             'Type'          => 'yeson',
-            'Description'   => 'Enable US Regional Checks'
+            'Description'   => 'Enable US Regional Checks',
+			'SimpleMode'	=> true
         ),
         // configoption11 = Check from EU Region
         'Check from EU Region'             => array(
             'Type'          => 'yesno',
-            'Description'   => 'Enable EU Regional Checks'
+            'Description'   => 'Enable EU Regional Checks',
+			'SimpleMode'	=> true
         ),
         // configoption12 = Check from AS Region
         'Check from AS Region'             => array(
             'Type'          => 'yesno',
-            'Description'   => 'Enable AS Regional Checks'
+            'Description'   => 'Enable AS Regional Checks',
+			'SimpleMode'	=> true
         ),
         // configoption13 = Check from AU Region
         'Check from AU Region'             => array(
             'Type'          => 'yesno',
-            'Description'   => 'Enable AU Regional Checks'
+            'Description'   => 'Enable AU Regional Checks',
+			'SimpleMode'	=> true
         )
     );
 };
