@@ -456,7 +456,7 @@ function betteruptime_ConfigOptions()
 		),
         // configoption10 = Check from US Region
         'Check from US Region'             => array(
-            'Type'          => 'yeson',
+            'Type'          => 'yesno',
             'Description'   => 'Enable US Regional Checks',
 			'SimpleMode'	=> true
         ),
