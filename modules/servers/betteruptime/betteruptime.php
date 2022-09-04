@@ -10,7 +10,7 @@ function betteruptime_MetaData()
 {
 	return array(
 		'DisplayName'		=> 'Better Uptime',
-		'APIVersion'		=> '1.0',
+		'APIVersion'		=> '1.1',
 		'RequiresServer'	=> false,
 	);
 }
@@ -454,6 +454,26 @@ function betteruptime_ConfigOptions()
 			'Default'		=> '14',
 			'SimpleMode'	=> true
 		),
+        // configoption10 = Check from US Region
+        'Check from US Region'             => array(
+            'Type'          => 'yeson',
+            'Description'   => 'Enable US Regional Checks'
+        ),
+        // configoption11 = Check from EU Region
+        'Check from EU Region'             => array(
+            'Type'          => 'yesno',
+            'Description'   => 'Enable EU Regional Checks'
+        ),
+        // configoption12 = Check from AS Region
+        'Check from AS Region'             => array(
+            'Type'          => 'yesno',
+            'Description'   => 'Enable AS Regional Checks'
+        ),
+        // configoption13 = Check from AU Region
+        'Check from AU Region'             => array(
+            'Type'          => 'yesno',
+            'Description'   => 'Enable AU Regional Checks'
+        )
     );
 };
 
@@ -463,6 +483,12 @@ function betteruptime_CreateAccount(array $params)
 	try {
         require_once('license.php');
 		
+        // Set the Regional Array
+        $regions = [];
+        if($params['configoption10']){$regions[]="us";}
+        if($params['configoption11']){$regions[]="eu";}
+        if($params['configoption12']){$regions[]="as";}
+        if($params['configoption13']){$regions[]="au";}
 	    // Define Data
         $createData = [];
         $createData['url']                  = $params['domain'];
@@ -478,6 +504,7 @@ function betteruptime_CreateAccount(array $params)
         $createData['maintenance_timezone'] = $params['configoption7'];
 	    $createData['domain_expiration'] 	= $params['configoption8'];
 		$createData['ssl_expiration']		= $params['configoption9'];
+        $createData['regions']              = $regions;
 
         //encode array into proper json
         $createData = json_encode($createData);
